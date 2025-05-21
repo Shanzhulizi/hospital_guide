@@ -1,0 +1,28 @@
+hospital_guide_bot/
+├── app/
+
+│   ├── agent/
+│   │   ├── guide_agent.py
+│   ├── api/
+│   │   ├── main.py                     # FastAPI 应用主入口
+│   │   ├── symptom_api.py          # 智能问诊 API 路由
+│   │   ├── navigation_api.py       # 医院导航 API 路由
+│   │   └── medical_qa_api.py               # 常见问题问答 API 路由
+│   │
+│   ├── tools/
+│   │   ├── symptom_tool.py            # 症状-科室匹配逻辑
+│   │   ├── navigation_tool.py         # 医院地点匹配逻辑
+│   │   └── medical_qa_tool.py                 # 问答匹配逻辑（基于本地语料）
+│   │
+│   └── chains/                        # （可选）RAG链或大模型调用逻辑
+│        ├── rag_chain.py                      # 通用 RAG 问答链
+│
+├── data/
+│   ├── symptom_to_department.json     # 问诊映射数据
+│   ├── hospital_navigation_corpus.txt # 医院导航语料（tab 分隔）
+│   └── medical_qa_corpus.txt          # 常见问题语料（tab 分隔）
+│
+├── vectorstore/                       # 使用向量检索存放 FAISS 向量库
+│
+├── requirements.txt
+└── README.md
